@@ -1,0 +1,6 @@
+@FPV.APP_HostAddress = http://localhost:5298
+
+GET {{FPV.APP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
