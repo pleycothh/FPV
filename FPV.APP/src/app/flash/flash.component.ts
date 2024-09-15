@@ -1,7 +1,9 @@
-import { Component} from '@angular/core';
+import { Component, inject} from '@angular/core';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { ProductViewerComponent } from './product-viewer/product-viewer.component';
 import { ProductEntity } from '../sharing/models/productEntity.model';
+import { HttpClient } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -12,18 +14,25 @@ import { ProductEntity } from '../sharing/models/productEntity.model';
   standalone: true,
   imports: [
     ProductViewerComponent,
-    ProductFormComponent
+    ProductFormComponent,
   ]
 })
 export class FlashComponent {
 
   productEntity: ProductEntity;
-
   /**
    *
    */
-  constructor() {
+  constructor(    
+    //private http: HttpClient, 
+  ) {
     this.productEntity = {} as ProductEntity;
+  }
+
+  onCalc($event: any) {
+    console.log('onCalc, flashcomponent');
+    console.log($event);
+
   }
 
 }

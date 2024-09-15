@@ -1,7 +1,5 @@
-import {Component, Injectable, Input} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {FlashService} from '../flash.service';
-import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ProductEntity } from '../../sharing/models/productEntity.model';
 
 @Component({
@@ -18,6 +16,7 @@ import { ProductEntity } from '../../sharing/models/productEntity.model';
 
 export class ProductFormComponent {
   @Input() productEntity: ProductEntity;
+  @Output() calc: EventEmitter<ProductEntity> = new EventEmitter<ProductEntity>();
   /**
    *
    */
@@ -26,13 +25,11 @@ export class ProductFormComponent {
   ) {
     this.productEntity = {} as ProductEntity;    
   }
-  calc(input: ProductEntity)
+  onCalc(input: ProductEntity)
   {
-    this.productEntity.sum = this.productEntity.factor1 + this.productEntity.factor2;
-    console.log('calc');
-    
-    console.log(input);
-
-
+    console.log('onCalc, productFormComponent');
+    this.calc.emit(input);
+  
   }
+
 }
