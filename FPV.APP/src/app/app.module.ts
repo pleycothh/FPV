@@ -4,20 +4,23 @@ import { AppRoutingModule } from "./app.routes";
 
 import { AppComponent } from './app.component';
 import { FlashModule } from "./flash/flash.module";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
-        AppComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
+
+        
+        
         FlashModule,
         
-        ReactiveFormsModule,
+        //FormsModule,
+       // ReactiveFormsModule,
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: []
 })
 export class AppModule { }

@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
+import { FlashModule } from './flash/flash.module';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    //HttpClient, 
+    FlashModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

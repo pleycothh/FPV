@@ -1,8 +1,10 @@
-<label for="name">Factor 1: </label>
-<input id="name" type="text">
-<br />
-<label for="name">Factor 2: </label>
-<input id="name" type="text">
-<br />
-<button class="btn btn-primary" onclick="calc('123')">Calculate</button>
-
+<h1> Product Form: </h1>
+<form (ngSubmit)="calc(productEntity)">
+    <label for="factor1">Factor 1: </label>
+    <input id="factor1" type="text" [(ngModel)]="productEntity.factor1" name="factor1">
+    <br />
+    <label for="factor2">Factor 2: </label>
+    <input id="factor2" type="text" [(ngModel)]="productEntity.factor2" name="factor2">
+    <br />
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>

@@ -1,25 +1,19 @@
-import {Injectable } from '@angular/core';
+import {Component, Injectable } from '@angular/core';
 import { BaseHttp } from '../sharing/services/base-http';
 import { HttpClient } from '@angular/common/http';
+import { ProductEntity } from '../sharing/models/productEntity.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class FlashService extends BaseHttp   {
 
   constructor(http: HttpClient) {
     super(http);
   }
 
-  getUserByIdAysnc(id: string) {
-   //return this.http.get<UserEntity>(`${this.apiUrl}/user/${id}`);
-   return null;
+  calc(product: ProductEntity) {
+    return this.http.post<object>(`${this.apiUrl}/calc`, product);
   }
-
-  getBookById() {
-    return this.http.get<object>(`${this.apiUrl}/book`);
-   return null;
-  }
-
-
 }

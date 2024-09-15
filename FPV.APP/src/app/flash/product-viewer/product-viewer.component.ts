@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ProductEntity } from '../../sharing/models/productEntity.model';
 
 @Component({
   selector: 'app-product-viewer',
@@ -8,5 +9,15 @@ import { Component } from '@angular/core';
   styleUrl: './product-viewer.component.scss'
 })
 export class ProductViewerComponent {
+
+  
+  @Input() productEntity: ProductEntity;
+
+  /**
+   *
+   */
+  constructor() {
+    this.productEntity = {} as ProductEntity;
+  }
 
 }

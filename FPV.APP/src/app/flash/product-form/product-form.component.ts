@@ -1,5 +1,8 @@
-import {Component} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {Component, Injectable, Input} from '@angular/core';
+import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FlashService} from '../flash.service';
+import { HttpClient } from '@angular/common/http';
+import { ProductEntity } from '../../sharing/models/productEntity.model';
 
 @Component({
   selector: 'app-product-form',
@@ -7,14 +10,29 @@ import {FormControl} from '@angular/forms';
   styleUrl: './product-form.component.scss',
   standalone: true,
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
-export class ProductFormComponent {
+//@Injectable({providedIn: 'root'})
 
-  calc(input: any)
+export class ProductFormComponent {
+  @Input() productEntity: ProductEntity;
+  /**
+   *
+   */
+  constructor(
+   // private fs: FlashService
+  ) {
+    this.productEntity = {} as ProductEntity;    
+  }
+  calc(input: ProductEntity)
   {
+    this.productEntity.sum = this.productEntity.factor1 + this.productEntity.factor2;
     console.log('calc');
     
     console.log(input);
+
+
   }
 }
