@@ -14,6 +14,6 @@ export class FlashService extends BaseHttp   {
   }
 
   calc(product: ProductEntity) {
-    return this.http.post<object>(`${this.apiUrl}/calc`, product);
+    return this.http.post<ProductEntity>(`${this.apiUrl}/calc`, product);
   }
 }

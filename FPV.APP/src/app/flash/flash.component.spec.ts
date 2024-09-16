@@ -6,10 +6,12 @@ describe('FlashComponent', () => {
   let component: FlashComponent;
   let fixture: ComponentFixture<FlashComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [FlashComponent]
-    });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [FlashComponent]
+    })
+    .compileComponents();
+
     fixture = TestBed.createComponent(FlashComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
