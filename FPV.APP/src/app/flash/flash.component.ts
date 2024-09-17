@@ -34,10 +34,17 @@ export class FlashComponent {
   onCalc($event: any) {
     console.log('onCalc, flashcomponent');
     console.log($event);
-    this.fs.calc($event).subscribe(
-      (data) => {
-        console.log(data);
-        this.productEntity = data;
+    let product = {
+      id: '1',
+      factor1: $event.factor1,
+      factor2: $event.factor2,
+      sum: 0,
+      lastUpdateDate: new Date()
+    } as ProductEntity;
+    
+    this.fs.calc(product).subscribe( src => {
+        console.log(src);
+        this.productEntity = src;
       }, error => {
         console.log(error);
       }

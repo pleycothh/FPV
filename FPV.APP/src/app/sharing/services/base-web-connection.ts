@@ -7,7 +7,7 @@ export abstract class BaseWebConnection {
         if (environment.production) {
             this.baseUrl = '';
         }else{
-            this.baseUrl = 'https://localhost:7141'; // https://localhost:7141/api/Book
+            this.baseUrl = 'https://localhost:44326'; // https://localhost:7141/api/Book
         }
     }
 }
