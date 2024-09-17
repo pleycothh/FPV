@@ -1,8 +1,10 @@
-<app-product-form
-[productEntity]="productEntity"
-(calc)="onCalc($event)"
-></app-product-form>
-<hr>
-<app-product-viewer
-[productEntity]="productEntity"
-></app-product-viewer>
+<div class="container">
+    <div class="form-container">
+      <app-product-form (calc)="onCalc($event)"></app-product-form>
+    </div>
+    <div class="divider"></div>
+    <div class="viewer-container">
+      <app-product-viewer [productEntity]="productEntity"></app-product-viewer>
+    </div>
+  </div>
+  <hr>

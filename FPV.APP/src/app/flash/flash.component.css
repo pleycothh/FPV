@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    align-items: stretch;
+}
+
+.form-container, .viewer-container {
+    flex: 1;
+    padding: 10px;
+}
+
+.divider {
+    width: 1px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
