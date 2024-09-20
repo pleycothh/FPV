@@ -5,31 +5,80 @@ namespace FPV.APP.Models
   public class ProductEntity
   {
     public string Id { get; set; }
+    public string Name { get; set; }
 
-    // amount
-    public int factor1 { get; set; }
-    public int factor2 { get; set; }
-    public int sum { get; set; }
- //   public string Name { get; set; }
- //   public WeightUnit WeightUnit { get; set; }
-//    public LengthUnit LengthUnit { get; set; }
-    public DateTime LastUpdateDate { get; set; }
- //   public ComponentEntity ComponentEntity { get; set; }
+    public FramEntity FramEntity { get; set; }
+    public MotorEntity MotorEntity { get; set; }
+    public PropsEntity PropsEntity { get; set; }
+    public FlightControlEntity FlightControlEntity { get; set; }
+    public BatteryEntity BatteryEntity { get; set; }
 
+    public ResultEntity ResultEntity { get; set; }
   }
 
-  public enum WeightUnit
+  public class MotorEntity : PhisicEntity
   {
-    None = 0,
-    mg = 1,
-    g = 2,
-    kg = 3,
+    public int KvValue { get; set; }
+    public decimal Power { get; set; }
+    public decimal Torque { get; set; }
+    public int RPM { get; set; } // Max RPM at full throttle
+    public decimal MaxCurrent { get; set; } // Max current drawn by the motor (A)
+    public decimal Efficiency { get; set; } // Motor efficiency (0-1)
   }
-  public enum LengthUnit
+
+  public class BatteryEntity : PhisicEntity
+  {
+    public decimal Power { get; set; }
+    public int Capacity { get; set; } // Capacity in mAh
+    public int Rate { get; set; } // C-rate
+    public CellsType CellsType { get; set; }
+    public int CellNumber { get; set; }
+    public decimal TotalVotages { get => VotagePerCell * CellNumber; } // Total voltage = number of cells * voltage per cell
+    public decimal VotagePerCell { get; set; } // Voltage per cell
+  }
+
+  public class FramEntity : PhisicEntity
+  {
+    public string Name { get; set; }
+  }
+
+  public class PropsEntity : PhisicEntity
+  {
+    public string Name { get; set; }
+    public decimal Diameter { get; set; } // Propeller diameter (m)
+    public decimal Drag { get; set; } // Drag coefficient
+    public decimal Efficiency { get; set; } = 1; // Propeller efficiency (0-1)
+  }
+
+  public class FlightControlEntity : PhisicEntity
+  {
+    public string Name { get; set; }
+  }
+
+  public class ResultEntity : PhisicEntity
+  {
+    public decimal HoverTime { get; set; }
+    public decimal MaxSpeed { get; set; }
+    public decimal MaxRiseSpeed { get; set; }
+    public decimal Weight { get; set; }
+    public decimal Length { get; set; }
+    public decimal Width { get; set; }
+    public decimal Height { get; set; }
+  }
+
+  public class PowerUnit
+  {
+    public decimal Power { get; set; }
+    public decimal Lift { get; set; }
+    public decimal MaxMotorSpeedWithProps { get; set; }
+    public decimal MaxRiseSpeed { get; set; }
+  }
+
+  public enum CellsType
   {
     None = 0,
-    mm = 1,
-    cm = 2,
-    m = 3,
+    LiPo = 1,
+    LiFe = 2,
+    LiIon = 3,
   }
 }

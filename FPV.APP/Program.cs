@@ -58,13 +58,15 @@ namespace FPV.APP
          //
          //   builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IProductService, ProductService>();
-         //   builder.Services.AddScoped<IBookService, BookService>();
-         //
-         //
-         //   builder.Services.AddScoped<IRepository, BaseRepository>();
-         //   builder.Services.AddScoped<MongoDbContext>();
 
-            var app = builder.Build();
+            builder.Services.AddScoped<ICalculator, Calculator>();
+      //   builder.Services.AddScoped<IBookService, BookService>();
+      //
+      //
+      //   builder.Services.AddScoped<IRepository, BaseRepository>();
+      //   builder.Services.AddScoped<MongoDbContext>();
+
+      var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

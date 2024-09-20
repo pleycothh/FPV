@@ -1,28 +1,74 @@
-
-
 export interface ProductEntity {
     id: string;
-    // amount
-    factor1: number;
-    factor2: number;
-    factor3: number;
-    factor4: number;
-    factor5: number;
-    factor6: number;
-    factor7: number;
-    factor8: number;
-    factor9: number;
-    factor10: number;
-    factor11: number;
-    factor12: number;
-    factor13: number;
-    factor14: number;
-    factor15: number;
-    factor16: number;
-
-    
-    sum: number;
-
-    // time
-    lastUpdateDate: Date;
-}
+    name: string;
+  
+    framEntity: FramEntity;
+    motorEntity: MotorEntity;
+    propsEntity: PropsEntity;
+    flightControlEntity: FlightControlEntity;
+    batteryEntity: BatteryEntity;
+  
+    resultEntity: ResultEntity;
+  }
+  
+  export interface PhisicEntity {
+    weight: number; // In kg, using number to represent decimal
+    length?: number; // Optional, as not all entities may have length
+    width?: number;  // Optional
+    height?: number; // Optional
+  }
+  
+  export interface MotorEntity extends PhisicEntity {
+    kvValue: number;  // RPM per Volt (Kv)
+    power: number;    // Power in watts
+    torque: number;   // Torque in Nm
+    rpm: number;      // Revolutions per minute (max RPM)
+    maxCurrent: number; // Maximum current in A
+    efficiency: number; // Motor efficiency (0-1)
+  }
+  
+  export interface BatteryEntity extends PhisicEntity {
+    power: number;      // Power in watts
+    capacity: number;   // Capacity in mAh
+    rate: number;       // C-rate
+    cellsType: CellsType; // Type of battery cells
+    cellNumber: number; // Number of cells in the battery
+    totalVoltage: number; // Total voltage (calculated as voltagePerCell * cellNumber)
+    voltagePerCell: number; // Voltage per cell (e.g., 3.7V for LiPo)
+  }
+  
+  export interface FramEntity extends PhisicEntity {
+    name: string;
+  }
+  
+  export interface PropsEntity extends PhisicEntity {
+    name: string;
+    diameter: number; // Propeller diameter in meters
+    drag: number;     // Drag coefficient
+    efficiency: number; // Propeller efficiency (0-1)
+  }
+  
+  export interface FlightControlEntity extends PhisicEntity {
+    name: string;
+  }
+  
+  export interface ResultEntity extends PhisicEntity {
+    hoverTime: number; // Time in hours
+    maxSpeed: number;  // Max speed in m/s
+    maxRiseSpeed: number; // Max rising speed in m/s
+  }
+  
+  export interface PowerUnit {
+    power: number;
+    lift: number;
+    maxMotorSpeedWithProps: number; // Max speed of the motor with the props attached
+    maxRiseSpeed: number;  // Max rise speed in m/s
+  }
+  
+  export enum CellsType {
+    None = 0,
+    LiPo = 1,
+    LiFe = 2,
+    LiIon = 3
+  }
+  

@@ -7,9 +7,11 @@ namespace FPV.APP.Services
   public class ProductService : IProductService
   {
     private readonly IProductRepository _productRepository;
-    public ProductService(IProductRepository productRepository)
+    private readonly ICalculator _calculator;
+    public ProductService(IProductRepository productRepository, ICalculator calculator)
     {
-        _productRepository = productRepository;
+      _productRepository = productRepository;
+      _calculator = calculator;
     }
     public async Task<ProductEntity> Change(ProductEntity ProductEntity)
     {
@@ -18,7 +20,7 @@ namespace FPV.APP.Services
     }
     public async Task<ProductEntity> Calc(ProductEntity ProductEntity)
     {
-      ProductEntity.sum = ProductEntity.factor1 + ProductEntity.factor2;
+      _calculator.Calculate(ProductEntity);
       return await Task.FromResult(ProductEntity);
     }
   }

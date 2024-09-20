@@ -35,3 +35,11 @@ export enum ActionType{
     saving = 3,
     cypto = 4
 }
+
+
+export enum CellsType {
+    None = 0,
+    LiPo = 1,
+    LiFe = 2,
+    LiIon = 3,
+  }
