@@ -1,55 +1,75 @@
-<h1> Product Form: </h1>
+<h1>Product Form:</h1>
 <form (ngSubmit)="onCalc(productEntity)" class="product-form">
   <div class="section-box">
-    <h4>Fram</h4>
+    <h4>Frame</h4>
     <div class="section">
-      <label for="factor1">Factor 1: </label>
-      <input id="factor1" type="text" [(ngModel)]="productEntity.factor1" name="factor1" class="form-control">
-      <label for="factor2">Factor 2: </label>
-      <input id="factor2" type="text" [(ngModel)]="productEntity.factor2" name="factor2" class="form-control">
-      <label for="factor3">Factor 3: </label>
-      <input id="factor3" type="text" [(ngModel)]="productEntity.factor3" name="factor3" class="form-control">
-      <label for="factor4">Factor 4: </label>
-      <input id="factor4" type="text" [(ngModel)]="productEntity.factor4" name="factor4" class="form-control">
+      <label for="frameName">Name: </label>
+      <input id="frameName" type="text" [(ngModel)]="name" name="frameName" class="form-control">
+      <label for="frameWeight">Weight (kg): </label>
+      <input id="frameWeight" type="number" [(ngModel)]="weight" name="frameWeight" class="form-control">
     </div>
   </div>
   <div class="section-box">
     <h4>Motor</h4>
     <div class="section">
-      <label for="factor5">Factor 5: </label>
-      <input id="factor5" type="text" [(ngModel)]="productEntity.factor5" name="factor5" class="form-control">
-      <label for="factor6">Factor 6: </label>
-      <input id="factor6" type="text" [(ngModel)]="productEntity.factor6" name="factor6" class="form-control">
-      <label for="factor7">Factor 7: </label>
-      <input id="factor7" type="text" [(ngModel)]="productEntity.factor7" name="factor7" class="form-control">
-      <label for="factor8">Factor 8: </label>
-      <input id="factor8" type="text" [(ngModel)]="productEntity.factor8" name="factor8" class="form-control">
+      <label for="motorKvValue">Kv Value: </label>
+      <input id="motorKvValue" type="number" [(ngModel)]="productEntity.motorEntity.kvValue" name="motorKvValue" class="form-control">
+      <label for="motorPower">Power (W): </label>
+      <input id="motorPower" type="number" [(ngModel)]="productEntity.motorEntity.power" name="motorPower" class="form-control">
+      <label for="motorTorque">Torque (Nm): </label>
+      <input id="motorTorque" type="number" [(ngModel)]="productEntity.motorEntity.torque" name="motorTorque" class="form-control">
+      <label for="motorRpm">RPM: </label>
+      <input id="motorRpm" type="number" [(ngModel)]="productEntity.motorEntity.rpm" name="motorRpm" class="form-control">
+      <label for="motorMaxCurrent">Max Current (A): </label>
+      <input id="motorMaxCurrent" type="number" [(ngModel)]="productEntity.motorEntity.maxCurrent" name="motorMaxCurrent" class="form-control">
+      <label for="motorEfficiency">Efficiency: </label>
+      <input id="motorEfficiency" type="number" [(ngModel)]="productEntity.motorEntity.efficiency" name="motorEfficiency" class="form-control">
     </div>
   </div>
   <div class="section-box">
-    <h4>Propeler</h4>
+    <h4>Propeller</h4>
     <div class="section">
-      <label for="factor9">Factor 9: </label>
-      <input id="factor9" type="text" [(ngModel)]="productEntity.factor9" name="factor9" class="form-control">
-      <label for="factor10">Factor 10: </label>
-      <input id="factor10" type="text" [(ngModel)]="productEntity.factor10" name="factor10" class="form-control">
-      <label for="factor11">Factor 11: </label>
-      <input id="factor11" type="text" [(ngModel)]="productEntity.factor11" name="factor11" class="form-control">
-      <label for="factor12">Factor 12: </label>
-      <input id="factor12" type="text" [(ngModel)]="productEntity.factor12" name="factor12" class="form-control">
+      <label for="propsName">Name: </label>
+      <input id="propsName" type="text" [(ngModel)]="productEntity.propsEntity.name" name="propsName" class="form-control">
+      <label for="propsDiameter">Diameter (m): </label>
+      <input id="propsDiameter" type="number" [(ngModel)]="productEntity.propsEntity.diameter" name="propsDiameter" class="form-control">
+      <label for="propsDrag">Drag: </label>
+      <input id="propsDrag" type="number" [(ngModel)]="productEntity.propsEntity.drag" name="propsDrag" class="form-control">
+      <label for="propsEfficiency">Efficiency: </label>
+      <input id="propsEfficiency" type="number" [(ngModel)]="productEntity.propsEntity.efficiency" name="propsEfficiency" class="form-control">
+    </div>
+  </div>
+  <div class="section-box">
+    <h4>Flight Control</h4>
+    <div class="section">
+      <label for="flightControlName">Name: </label>
+      <input id="flightControlName" type="text" [(ngModel)]="productEntity.flightControlEntity.name" name="flightControlName" class="form-control">
+      <label for="flightControlWeight">Weight (kg): </label>
+      <input id="flightControlWeight" type="number" [(ngModel)]="productEntity.flightControlEntity.weight" name="flightControlWeight" class="form-control">
     </div>
   </div>
   <div class="section-box">
     <h4>Battery</h4>
     <div class="section">
-      <label for="factor13">Factor 13: </label>
-      <input id="factor13" type="text" [(ngModel)]="productEntity.factor13" name="factor13" class="form-control">
-      <label for="factor14">Factor 14: </label>
-      <input id="factor14" type="text" [(ngModel)]="productEntity.factor14" name="factor14" class="form-control">
-      <label for="factor15">Factor 15: </label>
-      <input id="factor15" type="text" [(ngModel)]="productEntity.factor15" name="factor15" class="form-control">
-      <label for="factor16">Factor 16: </label>
-      <input id="factor16" type="text" [(ngModel)]="productEntity.factor16" name="factor16" class="form-control">
+      <label for="batteryPower">Power (W): </label>
+      <input id="batteryPower" type="number" [(ngModel)]="productEntity.batteryEntity.power" name="batteryPower" class="form-control">
+      <label for="batteryCapacity">Capacity (mAh): </label>
+      <input id="batteryCapacity" type="number" [(ngModel)]="productEntity.batteryEntity.capacity" name="batteryCapacity" class="form-control">
+      <label for="batteryRate">C-rate: </label>
+      <input id="batteryRate" type="number" [(ngModel)]="productEntity.batteryEntity.rate" name="batteryRate" class="form-control">
+      <label for="batteryCellsType">Cells Type: </label>
+      <select id="batteryCellsType" [(ngModel)]="productEntity.batteryEntity.cellsType" name="batteryCellsType" class="form-control">
+        <option [value]="0">None</option>
+        <option [value]="1">LiPo</option>
+        <option [value]="2">LiFe</option>
+        <option [value]="3">LiIon</option>
+      </select>
+      <label for="batteryCellNumber">Number of Cells: </label>
+      <input id="batteryCellNumber" type="number" [(ngModel)]="productEntity.batteryEntity.cellNumber" name="batteryCellNumber" class="form-control">
+      <label for="batteryTotalVoltage">Total Voltage: </label>
+      <input id="batteryTotalVoltage" type="number" [(ngModel)]="productEntity.batteryEntity.totalVoltage" name="batteryTotalVoltage" class="form-control">
+      <label for="batteryVoltagePerCell">Voltage per Cell: </label>
+      <input id="batteryVoltagePerCell" type="number" [(ngModel)]="productEntity.batteryEntity.voltagePerCell" name="batteryVoltagePerCell" class="form-control">
     </div>
   </div>
   <button class="btn btn-primary submit-button" type="submit">Submit</button>

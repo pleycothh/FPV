@@ -5,7 +5,6 @@ import { ProductEntity } from '../sharing/models/productEntity.model';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FlashService } from './flash.service';
-import e from 'express';
 
 
 
@@ -28,21 +27,26 @@ export class FlashComponent {
   constructor(    
     private fs: FlashService, 
   ) {
-    this.productEntity = {} as ProductEntity;
+    this.productEntity = 
+    {
+      id: '',
+      name: '',
+      framEntity: { name: '', weight: 0 },
+      motorEntity: { weight: 0, kvValue: 0, power: 0, torque: 0, rpm: 0, maxCurrent: 0, efficiency: 0 },
+      propsEntity: { name: '', weight: 0, diameter: 0, drag: 0, efficiency: 0 },
+      flightControlEntity: { name: '', weight: 0 },
+      batteryEntity: { weight: 0, power: 0, capacity: 0, rate: 0, cellsType: 0, cellNumber: 0, totalVoltage: 0, voltagePerCell: 0 },
+      resultEntity: { weight: 0, hoverTime: 0, maxSpeed: 0, maxRiseSpeed: 0 }
+    };
   }
 
-  onCalc($event: any) {
+  onCalc($event: ProductEntity) {
     console.log('onCalc, flashcomponent');
     console.log($event);
-    let product = {
-      id: '1',
-      factor1: $event.factor1,
-      factor2: $event.factor2,
-      sum: 0,
-      lastUpdateDate: new Date()
-    } as ProductEntity;
     
-    this.fs.calc(product).subscribe( src => {
+    
+    
+    this.fs.calc($event as ProductEntity).subscribe( src => {
         console.log(src);
         this.productEntity = src;
       }, error => {
