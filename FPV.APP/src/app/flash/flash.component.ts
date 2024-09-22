@@ -5,6 +5,7 @@ import { ProductEntity } from '../sharing/models/productEntity.model';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FlashService } from './flash.service';
+import { RequestEntity } from '../sharing/models/request.model';
 
 
 
@@ -44,15 +45,20 @@ export class FlashComponent {
     console.log('onCalc, flashcomponent');
     console.log($event);
     
+    let RequestEntity: RequestEntity = { product: $event };
     
-    
-    this.fs.calc($event as ProductEntity).subscribe( src => {
+    this.fs.calc(RequestEntity).subscribe({
+      next: (src: ProductEntity) => {
         console.log(src);
         this.productEntity = src;
-      }, error => {
+      },
+      error: (error: any) => {
         console.log(error);
+      },
+      complete: () => {
+        console.log('Calculation complete');
       }
-    );
+    });
   }
 
 }

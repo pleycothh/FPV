@@ -30,6 +30,9 @@ export class ProductFormComponent {
     if(this.productEntity == null)
     {
       this.productEntity = {} as ProductEntity;
+      
+      this.productEntity.id = '123';
+      this.productEntity.name = 'FPV';
       this.productEntity.framEntity = { name: '', weight: 0 };
       this.productEntity.motorEntity = { weight: 0, kvValue: 0, power: 0, torque: 0, rpm: 0, maxCurrent: 0, efficiency: 0 };
       this.productEntity.propsEntity = { name: '', weight: 0, diameter: 0, drag: 0, efficiency: 0 };
