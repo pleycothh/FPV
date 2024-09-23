@@ -5,7 +5,7 @@ import { CellsType, ProductEntity } from '../../sharing/models/productEntity.mod
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
-  styleUrl: './product-form.component.scss',
+  styleUrl: './product-form.component.css',
   standalone: true,
   imports: [
     FormsModule,
@@ -39,15 +39,15 @@ export class ProductFormComponent {
       this.productEntity.flightControlEntity = { name: '', weight: 0 };
       this.productEntity.batteryEntity = { weight: 0, power: 0, capacity: 0, rate: 0, cellsType: CellsType.None, cellNumber: 0, totalVoltage: 0, voltagePerCell: 0 };
       this.productEntity.resultEntity = { weight: 0, hoverTime: 1, maxSpeed: 0, maxRiseSpeed: 0 };
-      console.log('productFormComponent reinitlized');
-      console.log(this.productEntity);
+     // console.log('productFormComponent reinitlized');
+    //  console.log(this.productEntity);
     }
   }
 
   
   onCalc(input: ProductEntity)
   {
-    console.log('onCalc, productFormComponent');
+  //  console.log('onCalc, productFormComponent');
     this.calc.emit(input);
   
   }

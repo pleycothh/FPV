@@ -43,13 +43,19 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "600kB",
+                  "maximumError": "1.2MB"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kB",
                   "maximumError": "4kB"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/app/sharing/services/envrionments/environment.ts",
+                  "with": "src/app/sharing/services/envrionments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"

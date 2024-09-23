@@ -42,21 +42,21 @@ export class FlashComponent {
   }
 
   onCalc($event: ProductEntity) {
-    console.log('onCalc, flashcomponent');
-    console.log($event);
+   // console.log('onCalc, flashcomponent');
+  //  console.log($event);
     
     let RequestEntity: RequestEntity = { product: $event };
     
     this.fs.calc(RequestEntity).subscribe({
       next: (src: ProductEntity) => {
-        console.log(src);
+      //  console.log(src);
         this.productEntity = src;
       },
       error: (error: any) => {
-        console.log(error);
+    //    console.log(error);
       },
       complete: () => {
-        console.log('Calculation complete');
+     //   console.log('Calculation complete');
       }
     });
   }

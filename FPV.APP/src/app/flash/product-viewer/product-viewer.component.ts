@@ -6,7 +6,7 @@ import { CellsType, ProductEntity } from '../../sharing/models/productEntity.mod
   standalone: true,
   imports: [],
   templateUrl: './product-viewer.component.html',
-  styleUrl: './product-viewer.component.scss'
+  styleUrl: './product-viewer.component.css'
 })
 export class ProductViewerComponent {
 
@@ -29,8 +29,8 @@ export class ProductViewerComponent {
         this.productEntity.flightControlEntity = { name: '', weight: 0 };
         this.productEntity.batteryEntity = { weight: 0, power: 0, capacity: 0, rate: 0, cellsType: CellsType.None, cellNumber: 0, totalVoltage: 0, voltagePerCell: 0 };
         this.productEntity.resultEntity = { weight: 0, hoverTime: 1, maxSpeed: 0, maxRiseSpeed: 0 };
-        console.log('productViewComponent reinitlized');
-        console.log(this.productEntity);
+     //   console.log('productViewComponent reinitlized');
+     //   console.log(this.productEntity);
       }
     
   }

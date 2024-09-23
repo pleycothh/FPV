@@ -5,7 +5,7 @@ export abstract class BaseWebConnection {
 
     constructor() {
         if (environment.production) {
-            this.baseUrl = '';
+            this.baseUrl = 'https://mmbkapi.azurewebsites.net';
         }else{
             this.baseUrl = 'https://localhost:44326'; // https://localhost:7141/api/Book
         }
